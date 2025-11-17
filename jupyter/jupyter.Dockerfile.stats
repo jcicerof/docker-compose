@@ -1,0 +1,4 @@
+# https://chatgpt.com/c/690ee24e-5aac-8329-942f-b6420d3f1758
+
+docker run -it --rm -p 8888:8888 -v $(pwd):/workspace python-stats-alpine jupyter lab --ip=0.0.0.0 --no-browser --allow-root
+

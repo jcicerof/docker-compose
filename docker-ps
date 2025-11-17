@@ -1,0 +1,1 @@
+alias dps='docker ps --format "table {{.ID}}\t{{printf \"%.22s\" .Image}}\t{{printf \"%.22s\" .Command}}\t{{.RunningFor}}\t{{.Status}}\t{{printf \"%.50s\" .Ports}}\t{{.Names}}"'

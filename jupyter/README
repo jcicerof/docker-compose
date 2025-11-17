@@ -1,0 +1,8 @@
+### para subir o container
+docker compose up -f docker-composer.yml -d
+
+### para ver as logs
+docker compose logs -f
+
+### parar o container
+docker compose down

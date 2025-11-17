@@ -1,0 +1,4 @@
+# https://chatgpt.com/c/690ee24e-5aac-8329-942f-b6420d3f1758
+
+docker run -it --rm -v $(pwd):/workspace python-stats-alpine
+

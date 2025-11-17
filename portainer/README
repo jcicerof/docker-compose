@@ -1,0 +1,11 @@
+### para subir o container
+docker compose up -f docker-composer.yml -d
+
+### para ver as logs
+docker compose logs -f
+
+### parar o container
+docker compose down
+
+### Portainer
+https://chatgpt.com/c/69196666-f1fc-8332-8b7d-d4da0d84e3be

@@ -1,0 +1,6 @@
+docker run -p 8282:80 \
+    --name pgadmin \
+    --restart unless-stopped \
+    -e 'PGADMIN_DEFAULT_EMAIL=pgadmin@admin.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=pgadmin' \
+    -d dpage/pgadmin4:9.9.0
