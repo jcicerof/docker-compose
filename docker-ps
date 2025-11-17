@@ -1,1 +1,4 @@
 alias dps='docker ps --format "table {{.ID}}\t{{printf \"%.22s\" .Image}}\t{{printf \"%.22s\" .Command}}\t{{.RunningFor}}\t{{.Status}}\t{{printf \"%.50s\" .Ports}}\t{{.Names}}"'
+
+# uma versao mais curta
+alias dps='docker ps --format "table {{.Names}}\t{{.ID}}\t{{printf \"%.22s\" .Image}}\t{{.RunningFor}}\t{{.Status}}"'
