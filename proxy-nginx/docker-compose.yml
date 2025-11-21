@@ -1,0 +1,19 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+  #  depends_on:
+  #    - app
+
+  # Exemplo simples de backend só para testar
+  # app:
+  #   image: node:alpine
+  #   container_name: node-app
+  #   command: sh -c "echo 'const http=require(\"http\"); http.createServer((req,res)=>res.end(\"OK - backend\" )).listen(3000)' > app.js && node app.js"
+  #   expose:
+  #     - "3000"

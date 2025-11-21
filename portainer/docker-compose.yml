@@ -4,16 +4,26 @@ services:
     container_name: portainer
     hostname: portainer
     restart: always
-    ports:
-      - "8000:8000"
-      - "9000:9000"
-      - "9443:9443"
+#   ports:
+#     - "8000:8000"
+#     - "9000:9000"
+#     - "9443:9443"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.local`)"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+    networks:
+      - proxy
 
 volumes:
   portainer_data:
+
+networks:
+  proxy:
+    external: true
 
 # O compose nao tem equivalente direto para --detach-keys
 # isso so funciona em "docker run", nao no compose.

@@ -3,9 +3,21 @@ services:
     image: python-stats-alpine
     container_name: jupyter-lab
     command: jupyter lab --ip=0.0.0.0 --no-browser --allow-root
-    ports:
-      - "8888:8888"
+#   ports:
+#     - "8888:8888"
     volumes:
       - ./:/workspace
     working_dir: /workspace
     restart: unless-stopped
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jupyter.rule=Host(`jupyter.local`)"
+      - "traefik.http.services.jupyter.loadbalancer.server.port=8888"
+
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
