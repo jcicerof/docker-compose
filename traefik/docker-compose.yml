@@ -6,7 +6,9 @@ services:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--entrypoints.web.address=:80"
-      - "--api.dashboard=true"
+ #     - "--api.dashboard=true"
+      - "--api.insecure=true"        # <--- NECESSÁRIO para acessar o dashboard via IP:8080
+
     ports:
       - "80:80"
       - "8080:8080" # Dashboard
