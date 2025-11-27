@@ -6,10 +6,10 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=America/Sao_Paulo
-      - DOCKER_MODS=linuxserver/mods:universal-calibre # ativa os recursos do calibre
+      # - DOCKER_MODS=linuxserver/mods:universal-calibre # ativa os recursos do calibre
     volumes:
       - ./library:/books
       - ./app:/config
     ports:
-      - "8080:8083"
+      - "8083:8083"
     restart: unless-stopped
