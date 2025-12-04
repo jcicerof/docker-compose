@@ -1,0 +1,15 @@
+services:
+  samba:
+    image: alpine:latest
+    container_name: pure-samba
+    restart: unless-stopped
+    command: ["/start.sh"]
+    ports:
+      - "137:137/udp"
+      - "138:138/udp"
+      - "139:139/tcp"
+      - "445:445/tcp"
+    volumes:
+      - ./config/smb.conf:/etc/samba/smb.conf
+      - /mnt/storage:/share
+      - ./scripts/start.sh:/start.sh
