@@ -11,5 +11,6 @@ services:
       - "445:445/tcp"
     volumes:
       - ./config/smb.conf:/etc/samba/smb.conf
-      - /mnt/storage:/share
+    #  - /mnt/storage:/share
+      - /mnt/share/library:/share
       - ./scripts/start.sh:/start.sh
