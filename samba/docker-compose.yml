@@ -1,7 +1,7 @@
 services:
   samba:
     image: alpine:latest
-    container_name: pure-samba
+    container_name: samba
     restart: unless-stopped
     command: ["/start.sh"]
     ports:
