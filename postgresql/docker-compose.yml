@@ -1,0 +1,37 @@
+on: "3.9"
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg_extended
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/pgsql/data
+    environment:
+      # Environment variables are optional; PostgreSQL on AlmaLinux
+      # does not require them to boot.
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "admin"
+      POSTGRES_DB: "maindb"
+
+  # Optional SSH access to run admin tools remotely
+  ssh:
+    image: almalinux:9-minimal
+    container_name: pg_ssh_gateway
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    command: ["/usr/sbin/sshd", "-D"]
+    volumes:
+      - pgdata:/var/lib/pgsql/data
+    # Installing OpenSSH server
+    # (Host keys auto-generated on first run)
+    init: true
+
+volumes:
+  pgdata:
+
